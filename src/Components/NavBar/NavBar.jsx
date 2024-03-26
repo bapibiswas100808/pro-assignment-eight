@@ -76,10 +76,10 @@ const NavBar = () => {
         </ul>
       </div>
       <div className="navbar-end flex lg:gap-3">
-        <button className="bg-[#23BE0A] py-2 px-3 lg:px-4 text-white font-sans text-md lg:text-xl rounded-lg border-none mr-3 lg:mr-0">
+        <button className="bg-[#23BE0A] py-2 px-3 lg:px-4 text-white font-sans text-md lg:text-xl rounded-lg border-none mr-3 lg:mr-0 cursor-pointer hover:bg-red-400">
           Sign In
         </button>
-        <button className="bg-[#59C6D2] py-2 px-3 lg:px-4 text-white font-sans text-md lg:text-xl rounded-lg border-none">
+        <button className="bg-[#59C6D2] py-2 px-3 lg:px-4 text-white font-sans text-md lg:text-xl rounded-lg border-none cursor-pointer hover:bg-red-400">
           Sign Up
         </button>
       </div>

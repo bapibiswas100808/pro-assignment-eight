@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import SingleBook from "../SingleBook/SingleBook";
 const Book = ({ allBooks }) => {
-  console.log(allBooks);
   return (
     <div className="my-10 lg:my-20">
       <h2 className="text-4xl font-play text-center">Books</h2>

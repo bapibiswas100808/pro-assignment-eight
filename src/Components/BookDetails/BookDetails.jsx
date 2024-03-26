@@ -1,4 +1,11 @@
+import toast, { Toaster } from "react-hot-toast";
 import { useLoaderData, useParams } from "react-router-dom";
+import {
+  getFromLocalStorage,
+  getWishFromLocalStorage,
+  saveToLocalStorage,
+  saveWishToLocalStorage,
+} from "../Utility/LocalStorage";
 
 const BookDetails = () => {
   const { bookId } = useParams();
@@ -18,8 +25,40 @@ const BookDetails = () => {
     yearOfPublishing,
     rating,
   } = targetBook;
+  const handleRead = () => {
+    const readData = getFromLocalStorage();
+    const isExists = readData.find(
+      (data) => parseInt(data) === parseInt(bookId)
+    );
+    if (!isExists) {
+      saveToLocalStorage(bookId);
+      toast.success("You Successfully added to the read list");
+    } else {
+      toast.error("This Book is already added to Read list");
+    }
+  };
+  const handleWish = () => {
+    const allReadData = getFromLocalStorage();
+    const isExists = allReadData.find(
+      (data) => parseInt(data) === parseInt(bookId)
+    );
+    if (!isExists) {
+      const wishData = getWishFromLocalStorage();
+      const isWishExists = wishData.find(
+        (data) => parseInt(data) === parseInt(bookId)
+      );
+      if (!isWishExists) {
+        saveWishToLocalStorage(bookId);
+        toast.success("You Successfully added to the wish list");
+      } else {
+        toast.error("This Book is already added to wish list");
+      }
+    } else {
+      toast.error("This book is already added to Read list");
+    }
+  };
   return (
-    <div className="flex flex-col lg:flex-row justify-between mt-5 gap-5 lg:gap-10 px-3 lg:px-0 mb-12">
+    <div className="flex flex-col lg:flex-row justify-between mt-5 gap-5 lg:gap-10 px-4 lg:px-0 mb-12">
       <div className="w-full flex justify-center items-center bg-gray-300 rounded-lg">
         <img className="max-h-[300px] py-10 lg:py-0" src={image} alt="" />
       </div>
@@ -74,12 +113,21 @@ const BookDetails = () => {
             <p className="font-bold font-sans text-md">{rating}</p>
           </div>
         </div>
-        <button className="mr-5 px-4 py-3 rounded-lg border-0 bg-green-500 text-white font-sans text-lg font-semibold mt-5">
+        <button
+          onClick={handleRead}
+          className="mr-5 px-4 py-3 rounded-lg border-1 border-[#f3f3f3] bg-[#23BE0A] text-white font-sans text-lg font-semibold mt-5 cursor-pointer hover:bg-transparent hover:text-[#23BE0A] "
+        >
           Read
         </button>
-        <button className=" px-4 py-3 rounded-lg border-0 bg-green-500 text-white font-sans text-lg font-semibold">
+        <button
+          onClick={handleWish}
+          className=" px-4 py-3 rounded-lg border-0 bg-[#50B1C9] text-white font-sans text-lg font-semibold cursor-pointer hover:bg-red-400"
+        >
           Wishlist
         </button>
+      </div>
+      <div>
+        <Toaster position="top-right" />
       </div>
     </div>
   );
