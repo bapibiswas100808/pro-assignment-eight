@@ -2,15 +2,21 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Root from "./Root/Root";
+import Home from "./Components/Home/Home";
+import ListedBooks from "./Components/ListedBooks/ListedBooks";
+import PagesToRead from "./Components/PagesToRead/PagesToRead";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <div className="bg-red-400 font-play text-center text-5xl">
-        Hello world!<span className="font-sans">I am here!</span>
-      </div>
-    ),
+    element: <Root></Root>,
+
+    children: [
+      { path: "/", element: <Home></Home> },
+      { path: "/listed", element: <ListedBooks></ListedBooks> },
+      { path: "/read", element: <PagesToRead></PagesToRead> },
+    ],
   },
 ]);
 
