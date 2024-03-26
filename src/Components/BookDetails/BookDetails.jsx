@@ -3,6 +3,7 @@ import { useLoaderData, useParams } from "react-router-dom";
 import {
   getFromLocalStorage,
   getWishFromLocalStorage,
+  removeFromWishList,
   saveToLocalStorage,
   saveWishToLocalStorage,
 } from "../Utility/LocalStorage";
@@ -26,6 +27,11 @@ const BookDetails = () => {
     rating,
   } = targetBook;
   const handleRead = () => {
+    const wishData = getWishFromLocalStorage();
+    const wishId = wishData.find(
+      (dataId) => parseInt(dataId) === parseInt(bookId)
+    );
+    removeFromWishList(wishId);
     const readData = getFromLocalStorage();
     const isExists = readData.find(
       (data) => parseInt(data) === parseInt(bookId)

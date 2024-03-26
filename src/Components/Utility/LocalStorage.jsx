@@ -30,9 +30,15 @@ const saveWishToLocalStorage = (id) => {
     localStorage.setItem("wish-data", JSON.stringify(storedData));
   }
 };
+const removeFromWishList = (id) => {
+  const allWishData = getWishFromLocalStorage();
+  const targetWish = allWishData.filter((dataId) => dataId !== id);
+  localStorage.setItem("wish-data", JSON.stringify(targetWish));
+};
 export {
   getFromLocalStorage,
   saveToLocalStorage,
   getWishFromLocalStorage,
   saveWishToLocalStorage,
+  removeFromWishList,
 };
