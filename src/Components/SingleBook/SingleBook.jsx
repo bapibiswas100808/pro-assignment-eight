@@ -1,10 +1,15 @@
 import PropTypes from "prop-types";
 import { FaRegStar } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const SingleBook = ({ book }) => {
-  const { image, tags, author, bookName, category, rating } = book;
+  const navigate = useNavigate();
+  const { image, tags, author, bookName, category, rating, bookId } = book;
   return (
-    <div className="card py-5">
+    <div
+      onClick={() => navigate(`/book/${bookId}`)}
+      className="card py-5 cursor-pointer"
+    >
       <figure className="py-10 bg-gray-300 rounded-xl">
         <img src={image} alt="image" className="max-h-[166px]" />
       </figure>
