@@ -8,3 +8,6 @@
   border: 1px solid green;
   color: green !important;
 }
+.card {
+  border: 1px solid rgb(198, 195, 195);
+}

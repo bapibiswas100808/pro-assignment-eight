@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <div className="flex items-center">
+    <div className="flex items-center mb-5 lg:mb-0">
       <div className="navbar-start">
         <div className="dropdown">
           <div
