@@ -3,12 +3,12 @@ import NavBar from "../Components/NavBar/NavBar";
 
 const Root = () => {
   return (
-    <>
-      <div className="max-w-[1170px] mx-auto">
+    <div className="max-w-[1170px] mx-auto">
+      <div className="max-w-[1160px]">
         <NavBar></NavBar>
-        <Outlet></Outlet>
       </div>
-    </>
+      <Outlet></Outlet>
+    </div>
   );
 };
 

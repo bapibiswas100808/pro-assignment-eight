@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <div className="navbar">
+    <div className="flex items-center">
       <div className="navbar-start">
         <div className="dropdown">
           <div
@@ -27,7 +27,7 @@ const NavBar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-50 p-2 bg-white rounded-box w-52 "
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 bg-white rounded-box w-52 "
           >
             <li>
               <NavLink className="no-underline" to="/">
@@ -73,8 +73,8 @@ const NavBar = () => {
           </li>
         </ul>
       </div>
-      <div className="navbar-end flex gap-2 lg:gap-3">
-        <button className="bg-[#23BE0A] py-2 px-3 lg:px-4 text-white font-sans text-md lg:text-xl rounded-lg border-none">
+      <div className="navbar-end flex lg:gap-3">
+        <button className="bg-[#23BE0A] py-2 px-3 lg:px-4 text-white font-sans text-md lg:text-xl rounded-lg border-none mr-3 lg:mr-0">
           Sign In
         </button>
         <button className="bg-[#59C6D2] py-2 px-3 lg:px-4 text-white font-sans text-md lg:text-xl rounded-lg border-none">
