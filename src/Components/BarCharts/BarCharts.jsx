@@ -1,15 +1,7 @@
-import {
-  BarChart,
-  Bar,
-  Cell,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-} from "recharts";
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from "recharts";
 import PropTypes from "prop-types";
 
-const BarCharts = ({ displayChart }) => {
+const BarCharts = ({ mappedData, chartKey, chartName }) => {
   const colors = [
     "#0088FE",
     "#00C49F",
@@ -21,11 +13,6 @@ const BarCharts = ({ displayChart }) => {
     "orange",
     "green",
   ];
-
-  const mappedData = displayChart.map((item) => ({
-    name: item.bookName,
-    pages: item.totalPages,
-  }));
 
   const getPath = (x, y, width, height) => {
     return `M${x},${y + height}C${x + width / 3},${y + height} ${
@@ -58,11 +45,10 @@ const BarCharts = ({ displayChart }) => {
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <Tooltip />
+        <XAxis dataKey={chartName} />
         <YAxis />
         <Bar
-          dataKey="pages"
+          dataKey={chartKey}
           fill="#8884d8"
           shape={<TriangleBar />}
           label={{ position: "top" }}
@@ -76,7 +62,9 @@ const BarCharts = ({ displayChart }) => {
   );
 };
 BarCharts.propTypes = {
-  displayChart: PropTypes.array.isRequired,
+  mappedData: PropTypes.array.isRequired,
+  chartKey: PropTypes.string.isRequired,
+  chartName: PropTypes.string.isRequired,
   fill: PropTypes.string,
   x: PropTypes.number,
   y: PropTypes.number,

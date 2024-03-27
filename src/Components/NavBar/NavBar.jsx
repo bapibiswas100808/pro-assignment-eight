@@ -29,19 +29,44 @@ const NavBar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 bg-white rounded-box w-52 "
           >
-            <li>
-              <NavLink className="no-underline" to="/">
+            <li className="text-xl">
+              <NavLink
+                to="/"
+                className="no-underline text-[#131313CC] font-sans"
+              >
                 Home
               </NavLink>
             </li>
-            <li>
-              <NavLink className="no-underline" to="/listed">
+            <li className="text-xl">
+              <NavLink
+                to="/listed"
+                className="no-underline text-[#131313CC] font-sans"
+              >
                 Listed Books
               </NavLink>
             </li>
-            <li>
-              <NavLink className="no-underline" to="/read">
+            <li className="text-xl">
+              <NavLink
+                to="/read"
+                className="no-underline text-[#131313CC] font-sans"
+              >
                 Pages To Read
+              </NavLink>
+            </li>
+            <li className="text-xl">
+              <NavLink
+                className="no-underline text-[#131313CC] font-sans"
+                to="/rating"
+              >
+                Category Rank
+              </NavLink>
+            </li>
+            <li className="text-xl">
+              <NavLink
+                className="no-underline text-[#131313CC] font-sans"
+                to="/contact"
+              >
+                Contact
               </NavLink>
             </li>
           </ul>
@@ -55,12 +80,12 @@ const NavBar = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          <li className="text-xl">
+          <li className="text-lg">
             <NavLink to="/" className="no-underline text-[#131313CC] font-sans">
               Home
             </NavLink>
           </li>
-          <li className="text-xl">
+          <li className="text-lg">
             <NavLink
               to="/listed"
               className="no-underline text-[#131313CC] font-sans"
@@ -68,12 +93,28 @@ const NavBar = () => {
               Listed Books
             </NavLink>
           </li>
-          <li className="text-xl">
+          <li className="text-lg">
             <NavLink
               to="/read"
               className="no-underline text-[#131313CC] font-sans"
             >
               Pages To Read
+            </NavLink>
+          </li>
+          <li className="text-lg">
+            <NavLink
+              className="no-underline text-[#131313CC] font-sans"
+              to="/rating"
+            >
+              Category Rank
+            </NavLink>
+          </li>
+          <li className="text-lg">
+            <NavLink
+              className="no-underline text-[#131313CC] font-sans"
+              to="/contact"
+            >
+              Contact
             </NavLink>
           </li>
         </ul>

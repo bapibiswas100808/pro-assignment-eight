@@ -22,9 +22,17 @@ const PagesToRead = () => {
     }
     setDisplayChart(chartBooks);
   }, [allBooks, chartData]);
+  const mappedData = displayChart.map((item) => ({
+    name: item.bookName,
+    pages: item.totalPages,
+  }));
   return (
     <div className="mt-14">
-      <BarCharts displayChart={displayChart}></BarCharts>
+      <BarCharts
+        mappedData={mappedData}
+        chartKey="pages"
+        chartName="name"
+      ></BarCharts>
     </div>
   );
 };
