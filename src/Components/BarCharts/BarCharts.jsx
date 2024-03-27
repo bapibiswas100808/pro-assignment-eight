@@ -10,7 +10,17 @@ import {
 import PropTypes from "prop-types";
 
 const BarCharts = ({ displayChart }) => {
-  const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "red", "pink"];
+  const colors = [
+    "#0088FE",
+    "#00C49F",
+    "#FFBB28",
+    "#FF8042",
+    "red",
+    "pink",
+    "blue",
+    "orange",
+    "green",
+  ];
 
   const mappedData = displayChart.map((item) => ({
     name: item.bookName,
