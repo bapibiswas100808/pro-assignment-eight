@@ -8,29 +8,76 @@ import {
   getWishFromLocalStorage,
 } from "../Utility/LocalStorage";
 import SingleSelectedBook from "../SingleSelectedBook/SingleSelectedBook";
+import { useEffect, useState } from "react";
 
 const ListedBooks = () => {
-  const targetReadBooks = [];
-  const targetWishBooks = [];
-  const allReadBooks = getFromLocalStorage();
-  const allWishBooks = getWishFromLocalStorage();
+  const [sortRead, setSortRead] = useState([]);
+  const [sortWish, setSortWish] = useState([]);
+  const [activeTab, setActiveTab] = useState(0);
   const allBooks = useLoaderData();
-  for (const readBook of allReadBooks) {
-    const targetBooks = allBooks.find(
-      (book) => parseInt(book.bookId) === parseInt(readBook)
-    );
-    if (targetBooks) {
-      targetReadBooks.push(targetBooks);
+
+  useEffect(() => {
+    const targetReadBooks = [];
+    const targetWishBooks = [];
+    const allReadBooks = getFromLocalStorage();
+    const allWishBooks = getWishFromLocalStorage();
+    for (const readBook of allReadBooks) {
+      const targetBooks = allBooks.find(
+        (book) => parseInt(book.bookId) === parseInt(readBook)
+      );
+      if (targetBooks) {
+        targetReadBooks.push(targetBooks);
+      }
     }
-  }
-  for (const wishBook of allWishBooks) {
-    const targetBooks = allBooks.find(
-      (book) => parseInt(book.bookId) === parseInt(wishBook)
-    );
-    if (targetBooks) {
-      targetWishBooks.push(targetBooks);
+    for (const wishBook of allWishBooks) {
+      const targetBooks = allBooks.find(
+        (book) => parseInt(book.bookId) === parseInt(wishBook)
+      );
+      if (targetBooks) {
+        targetWishBooks.push(targetBooks);
+      }
     }
-  }
+    setSortRead(targetReadBooks);
+    setSortWish(targetWishBooks);
+  }, [allBooks]);
+  const handleSortRating = () => {
+    if (activeTab === 0) {
+      const sortedData = [...sortRead].sort((a, b) => b.rating - a.rating);
+      setSortRead(sortedData);
+    } else {
+      const sortedWishData = [...sortWish].sort((a, b) => b.rating - a.rating);
+      setSortWish(sortedWishData);
+    }
+  };
+  const handleSortPages = () => {
+    if (activeTab === 0) {
+      const sortedData = [...sortRead].sort(
+        (a, b) => b.totalPages - a.totalPages
+      );
+      setSortRead(sortedData);
+    } else {
+      const sortedWishData = [...sortWish].sort(
+        (a, b) => b.totalPages - a.totalPages
+      );
+
+      setSortWish(sortedWishData);
+    }
+  };
+  const handleSortYear = () => {
+    if (activeTab === 0) {
+      const sortedData = [...sortRead].sort(
+        (a, b) => b.yearOfPublishing - a.yearOfPublishing
+      );
+      setSortRead(sortedData);
+    } else {
+      const sortedWishData = [...sortWish].sort(
+        (a, b) => b.yearOfPublishing - a.yearOfPublishing
+      );
+
+      setSortWish(sortedWishData);
+    }
+  };
+
   return (
     <div className="mb-12">
       <h2 className="text-2xl lg:text-4xl font-play font-bold text-center bg-gray-200 py-5 rounded-lg">
@@ -42,13 +89,13 @@ const ListedBooks = () => {
             Sort By <FaChevronDown />
           </summary>
           <ul className="p-2 shadow menu dropdown-content z-[1] bg-white rounded-box w-52 text-lg font-sans">
-            <li>
+            <li onClick={handleSortRating}>
               <a>Rating</a>
             </li>
-            <li>
+            <li onClick={handleSortPages}>
               <a>Number of Pages</a>
             </li>
-            <li>
+            <li onClick={handleSortYear}>
               <a>Published Year</a>
             </li>
           </ul>
@@ -57,13 +104,13 @@ const ListedBooks = () => {
       <div className="font-sans mt-10 lg:mt-0">
         <Tabs>
           <TabList>
-            <Tab>Read Books</Tab>
-            <Tab>Wishlist Book</Tab>
+            <Tab onClick={() => setActiveTab(0)}>Read Books</Tab>
+            <Tab onClick={() => setActiveTab(1)}>Wishlist Book</Tab>
           </TabList>
 
           <TabPanel>
             <div className="space-y-5">
-              {targetReadBooks.map((book) => (
+              {sortRead.map((book) => (
                 <SingleSelectedBook
                   key={book.bookId}
                   book={book}
@@ -73,7 +120,7 @@ const ListedBooks = () => {
           </TabPanel>
           <TabPanel>
             <div className="space-y-5">
-              {targetWishBooks.map((book) => (
+              {sortWish.map((book) => (
                 <SingleSelectedBook
                   key={book.bookId}
                   book={book}
