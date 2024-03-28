@@ -66,7 +66,11 @@ const BookDetails = () => {
   return (
     <div className="flex flex-col lg:flex-row justify-between mt-5 gap-5 lg:gap-10 px-4 lg:px-0 mb-12">
       <div className="w-full flex justify-center items-center bg-gray-300 rounded-lg">
-        <img className="max-h-[300px] py-10 lg:py-0" src={image} alt="" />
+        <img
+          className="max-h-[300px] lg:max-h-[700px] py-10 lg:py-0"
+          src={image}
+          alt=""
+        />
       </div>
       <div>
         <h2 className="font-play text-2xl lg:text-4xl font-bold">{bookName}</h2>

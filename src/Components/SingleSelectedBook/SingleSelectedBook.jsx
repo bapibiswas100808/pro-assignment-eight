@@ -25,23 +25,23 @@ const SingleSelectedBook = ({ book }) => {
           <img
             src={image}
             alt="image"
-            className="bg-gray-200 py-5 lg:py-10 px-10 rounded-lg h-[250px]"
+            className="bg-gray-200 px-0 lg:px-5 py-5 lg:py-0 rounded-lg h-[300px]"
           />
         </div>
-        <div className="text-center lg:text-left w-full">
-          <h2 className="text-2xl lg:text-3xl font-play">{bookName}</h2>
-          <p className="text-lg font-sans">By: {author}</p>
+        <div className="text-center lg:text-left w-full space-y-0">
+          <h2 className="text-2xl lg:text-3xl font-play mb-2">{bookName}</h2>
+          <p className="text-lg font-sans pb-0">By: {author}</p>
           <div className="flex flex-col lg:flex-row gap-0 lg:gap-5 items-center">
-            <p className="text-bold font-sans text-lg">Tags:</p>
+            <p className="text-bold font-sans text-lg my-3">Tags:</p>
             {tags.map((tag, idx) => (
               <p
-                className="font-semibold text-sm lg:text-lg text-[#23BE0A] font-sans"
+                className="font-semibold text-sm lg:text-lg text-[#23BE0A] font-sans my-3"
                 key={idx}
               >
                 #{tag}
               </p>
             ))}
-            <p className="text-sans text-sm lg:text-lg font-semibold">
+            <p className="text-sans text-sm lg:text-lg font-semibold my-3">
               <CiLocationOn /> Year of Publishing:
               {yearOfPublishing}
             </p>

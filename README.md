@@ -1,8 +1,11 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Name Of My Website: BookStore
+LiveLink Of my Website: https://pro-assignment8.netlify.app/
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+About This Project:
+1=> This Project is build by React + Vite and Tailwind Css Mainly
+2=> I used React Router for dynamic route in this project with Error page
+3=> All the icons I used from react-icons and some component is taken from Daisy UI
+4=> In this website i used Rechart to show data by the graph
+5=> This project is fully dynamic, so user can select books for read list or wishlist

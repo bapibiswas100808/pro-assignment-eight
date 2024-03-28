@@ -10,8 +10,8 @@ const SingleBook = ({ book }) => {
       onClick={() => navigate(`/book/${bookId}`)}
       className="card py-5 cursor-pointer"
     >
-      <figure className="py-10 bg-gray-300 rounded-xl">
-        <img src={image} alt="image" className="max-h-[166px]" />
+      <figure className="py-5 bg-gray-300 rounded-xl">
+        <img src={image} alt="image" className="h-[300px]" />
       </figure>
       <div className=" pt-0 px-10">
         <div className="flex justify-between items-center">

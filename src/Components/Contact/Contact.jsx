@@ -7,7 +7,7 @@ const Contact = () => {
     <div>
       <div className="min-h-screen mt-5 lg:mt-10">
         <div className="flex flex-col lg:flex-row-reverse items-center justify-center gap-5 lg:gap-10">
-          <div className="text-center lg:text-left flex-1 py-2 px-4 rounded-xl bg-gray-200 shadow-lg">
+          <div className="text-center lg:text-left flex-1 py-2 px-4 rounded-xl bg-[#f3f3f3] shadow-lg">
             <h1 className="text-2xl lg:text-4xl font-bold font-play">
               Subscribe Book Store!
             </h1>
