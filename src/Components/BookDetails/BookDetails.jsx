@@ -125,7 +125,7 @@ const BookDetails = () => {
         </div>
         <button
           onClick={handleRead}
-          className="mr-5 px-4 py-3 rounded-lg border-1 border-[#f3f3f3] bg-[#23BE0A] text-white font-sans text-lg font-semibold mt-5 cursor-pointer hover:bg-transparent hover:text-[#23BE0A] "
+          className="mr-5 px-4 py-3 rounded-lg border-0 bg-[#23BE0A] text-white font-sans text-lg font-semibold mt-5 cursor-pointer hover:bg-red-500 "
         >
           Read
         </button>
